@@ -11,11 +11,13 @@ import { ConfigurationsService, EventService, MultilingualTranslationsService, N
 export class CardMDOChannelComponent implements OnInit {
   @Input() widgetData!: NsContent.IContent;
   @Output() userData = new EventEmitter<any>()
+  @Output() emitTelemetry = new EventEmitter<any>()
   defaultThumbnail: any
   sourceLogos: any
   defaultSLogo: any
   widgetType: any = ''
   widgetSubType: any =''
+  
 
   constructor(
     private events: EventService,
@@ -43,27 +45,8 @@ export class CardMDOChannelComponent implements OnInit {
     }
   }
 
-  raiseTelemetry() {
-    // if(this.forPreview){
-    //   return
-    // }
-    this.events.raiseInteractTelemetry(
-      {
-        type: 'click',
-        subType: `${this.widgetType}-${this.widgetSubType}`,
-        id: `${_.camelCase(this.widgetData.content.userId)}-card`,
-      },
-      {
-        id: this.widgetData.content.userId,
-        // type: this.widgetData.user.primaryCategory,
-        //context: this.widgetData.context,
-        rollup: {},
-        // ver: `${this.widgetData.user.version}${''}`,
-      },
-      {
-        pageIdExt: `${_.camelCase('user')}-card`,
-        module: _.camelCase('user'),
-      })
+  raiseTelemetry(obj: any) {
+    this.emitTelemetry.emit(obj)
   }
 
 }
