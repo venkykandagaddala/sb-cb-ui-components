@@ -12,7 +12,9 @@
     <div class="key-list-container"
         [style.borderColor]="objectData?.panelborder"
         [style.backgroundColor]="objectData?.panelBackground">
-        <div class="{{mobileHeight ? 'mob-key-list' : 'key-list'}}" *ngIf="objectData?.list?.length">
+        <div
+            class="{{mobileHeight ? 'mob-key-list' : expand && expanded ? 'exp-key-list' : 'key-list'}}"
+            *ngIf="objectData?.list?.length">
             <div *ngFor="let item of objectData?.list; let i = index">
                 <div class="key-list-item mb-{{ objectData?.list?.length === (i+1) ? '' : '4'}}" 
                     [style.borderColor]="objectData?.listItem?.border"
@@ -23,12 +25,20 @@
                         <div class="cursor-pointer" (click)="viewMoreOrLess(item)" *ngIf="item?.expanded">View less</div>
                     </div>
                 </div>
-            </div>                        
+            </div>
         </div>
         <div class="{{mobileHeight ? 'mob-key-list' : 'key-list'}}" *ngIf="!objectData?.list?.length">
             <div class="text-center">No announcements yet!</div>
         </div>
     </div>
+    <ng-container *ngIf="!mobileHeight && expand">
+        <div (click)="showMoreOrLess()" class="announcements-expand" *ngIf="!expanded">            
+            <mat-icon>expand_more</mat-icon>
+        </div>
+        <div (click)="showMoreOrLess()" class="announcements-expand" *ngIf="expanded">            
+            <mat-icon>expand_less</mat-icon>
+        </div>
+    </ng-container>  
 </div>
 
 <div class="w-full" *ngIf="layoutType === 'mobile'">

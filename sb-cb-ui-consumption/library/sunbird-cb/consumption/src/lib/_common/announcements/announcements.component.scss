@@ -11,7 +11,11 @@
     margin-top: -20px;
 }
 .key-list {
-    height: 600px;
+    height: 325px;
+    overflow: auto;
+}
+.exp-key-list {
+    height: 100%;
     overflow: auto;
 }
 
@@ -96,6 +100,22 @@
     border-radius: 20px;
     margin-top: -3px;
     animation: paddingAnimation 900ms infinite ease;
+}
+
+.announcements-expand {
+    width: 32px;
+    height: 32px;
+    position: relative;
+    background: #000;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 50%;
+    right: 50%;
+    top: -16px;
+    cursor: pointer;
 }
 
 @keyframes mobPaddingAnimation {
