@@ -1,0 +1,143 @@
+
+.title {
+    font-family: Montserrat;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 19.5px;
+    text-align: center;    
+    padding: 15px;
+}
+
+.title-border {
+    margin: 10px;
+    width: 240px;
+    height: 3px;
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgb(239, 149, 30) 25%, rgb(239, 149, 30)75%, rgba(255,255,255,0) 100%);
+}
+
+.top-learners-container {
+    overflow: auto;
+}
+
+::-webkit-scrollbar {
+    height: 10px!important;
+}
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: #eff3f9!important;
+}
+::-webkit-scrollbar-thumb {
+    background: #cccc; 
+    border-radius: 10px;
+}
+
+
+.user-box {
+    width: 360px;
+    height: 134px;
+    border-radius: 8px;
+    background-color: white;
+    padding: 16px;
+    position: relative;
+}
+
+.flex-container {
+    display: flex;   
+}
+
+.flex-item {
+    flex: 0 0 auto; /* Don't grow or shrink, use initial width */
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+.img-name-sec {
+    justify-content: space-between;
+}
+
+.initial {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+}
+
+.user-image {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+}
+
+.name-sec {
+    font-family: Lato;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 19.2px;
+    text-align: left;
+    width: 200px !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.designation-sec {
+    font-family: Lato;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14.4px;
+    text-align: left;
+    opacity: 0.6;
+    width: 200px !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.rank-sec {
+    font-family: Montserrat;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 43.88px;
+    text-align: left;
+    color: #EF951E;
+
+}
+.kp-section {
+    justify-content: flex-end;
+    position: absolute;
+    right: 18px;
+    bottom: 16px;
+    align-items: center;
+}
+.kp-image {
+    width: 32px;
+    height: 32px;
+    padding-top: 3px;
+}
+.points {
+    font-family: Lato;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 28.8px;
+    text-align: left;
+    color: #1B4CA1;
+    padding-bottom: 3px;
+}
+
+
+::-webkit-scrollbar {
+    height: 4px;
+}
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: #000
+}
+::-webkit-scrollbar-thumb {
+    background: #cccc; 
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 768px) { 
+    .user-box {
+        width: 343px;
+    }
+}

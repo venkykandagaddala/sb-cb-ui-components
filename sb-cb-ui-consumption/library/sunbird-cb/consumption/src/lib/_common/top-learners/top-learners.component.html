@@ -1,0 +1,91 @@
+<div class="flex flex-center">
+    <div>
+        <div class="title-border"></div>
+        <div class="title" [style.color]="objectData?.titleFontColor">{{objectData?.title}}</div>
+        <div class="title-border"></div>
+    </div>    
+</div>
+<div class="top-learners-container" *ngIf="!loading && objectData?.learners">
+    <div class="w-full margin-bottom-l margin-top-l">
+        <div class="flex gap-3">
+            <div *ngFor="let obj of objectData?.learners; let i=index" class="flex-container">
+                <div class="flex-item user-box">
+                    <div class="flex gap-3 img-name-sec">
+                        <div class="flex gap-3">
+                            <div class="profile-pic" *ngIf="obj?.imageUrl">
+                                <img [src]="obj?.imageUrl" class="user-image"/>
+                            </div>
+                            <div class="initial" *ngIf="!obj?.imageUrl"
+                                [style.backgroundColor]="colors[i]">
+                                {{createInititals(obj?.name)}}
+                            </div>
+                            <div class="flex flex-col gap-1">
+                                <div class="name-sec">{{obj?.name}}</div>
+                                <div class="designation-sec">{{obj?.designation}}</div>
+                                <div class="designation-sec">{{channnelName}}</div>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">                                                       
+                            <div class="rank-sec">{{getRank(+obj?.rank)}}</div>
+                        </div>                        
+                    </div>
+                    <div class="flex gap-2 kp-section">
+                        <div class="kp-icon"><img [src]="objectData?.kpIcon" class="kp-image"/></div>
+                        <div class="points">{{obj?.points || 0}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-container>
+    <div class="top-learners-container" *ngIf="loading">
+        <div class="w-full margin-bottom-l margin-top-l">
+            <div class="flex gap-3">
+                <div *ngFor="let obj of [1,2,3]" class="flex-container">
+                    <div class="flex-item user-box">
+                        <div class="flex gap-3 img-name-sec">
+                            <div class="flex gap-3">
+                                <div class="profile-pic">
+                                    <sb-uic-skeleton-loader [bindingClass]="'flex rounded objIcon'" [width]="'44px'"
+                        [height]="'44px'"></sb-uic-skeleton-loader>
+                                </div>
+                                <div class="flex flex-col gap-1">
+                                    <div class="name-sec">
+                                        <sb-uic-skeleton-loader [bindingClass]="'flex rounded objIcon'" [width]="'200px'"
+                                        [height]="'24px'"></sb-uic-skeleton-loader>
+                                    </div>
+                                    <div class="designation-sec">
+                                        <sb-uic-skeleton-loader [bindingClass]="'flex rounded objIcon'" [width]="'200px'"
+                                        [height]="'16px'"></sb-uic-skeleton-loader>
+                                    </div>
+                                    <div class="designation-sec">
+                                        <sb-uic-skeleton-loader [bindingClass]="'flex rounded objIcon'" [width]="'200px'"
+                                        [height]="'16px'"></sb-uic-skeleton-loader>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex gap-3">                                                       
+                                <div class="rank-sec">
+                                    <sb-uic-skeleton-loader [bindingClass]="'flex rounded objIcon'" [width]="'44px'"
+                                        [height]="'44px'"></sb-uic-skeleton-loader>
+                                </div>
+                            </div>                        
+                        </div>
+                        <div class="flex gap-2 kp-section">
+                            <div class="kp-icon">
+                                <sb-uic-skeleton-loader [bindingClass]="'flex rounded objIcon'" [width]="'32px'"
+                                [height]="'32px'"></sb-uic-skeleton-loader>   
+                            </div>
+                            <div class="points">
+                                <sb-uic-skeleton-loader [bindingClass]="'flex rounded objIcon'" [width]="'32px'"
+                                        [height]="'32px'"></sb-uic-skeleton-loader>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
