@@ -59,6 +59,11 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.16);
 }
 
+.singleFlexeRow-flex-item {
+    flex: 0 0 auto; /* Don't grow or shrink, use initial width */
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
 .singleFlexeRow-div {
     padding: 16px;
     border-radius: 15px;
@@ -162,4 +167,8 @@
         min-width: 250px;
         padding: 15px 0 25px 0;
     }
+}
+
+.space-around {
+    justify-content: space-around;
 }

@@ -10,6 +10,7 @@ export class TopLearnersComponent implements OnInit {
   @Input() channelId: any
   @Input() channnelName: any
   loading: boolean = false
+  month: string = ''
 
   colors: any = [
     '#EB7181', // red
@@ -27,6 +28,7 @@ export class TopLearnersComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.month = new Date().toLocaleString('default', { month: 'long' })
     this.loading = true
     setTimeout(() => {
       this.loading = false

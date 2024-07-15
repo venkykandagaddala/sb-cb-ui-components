@@ -61,10 +61,12 @@
     </div>   
 </div>
 
+
+
 <div class="w-full" *ngIf="layoutType === 'singleFlexeRow' && !isDataLoading">
-    <div class="flex">
+    <div class="flex space-around">
         <div *ngFor="let obj of objectData" class="flex-container">
-            <div class="singleFlexeRow-div flex-item">
+            <div class="singleFlexeRow-div singleFlexeRow-flex-item">
                 <div class="flex flex-row gap-3">
                     <div>
                         <img [style.color]="obj?.iconColor"  class="singleFlexeRowIcon" [src]="obj.icon">
